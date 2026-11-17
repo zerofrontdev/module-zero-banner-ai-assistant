@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    The AI Assistant's tools, registered into the pool of Zero_AiAssistant
+    (\Proxy items: a tool whose module is off is never built; `requires` hides it).
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Zero\AiAssistant\Model\Tools">
+        <arguments>
+            <argument name="tools" xsi:type="array">
+                <item name="list_banners" xsi:type="object" sortOrder="1610">Zero\BannerAiAssistant\Model\Tool\ListBanners\Proxy</item>
+                <item name="save_slide" xsi:type="object" sortOrder="1620">Zero\BannerAiAssistant\Model\Tool\SaveSlide\Proxy</item>
+            </argument>
+            <argument name="requires" xsi:type="array">
+                <item name="list_banners" xsi:type="string">Zero_Banner</item>
+                <item name="save_slide" xsi:type="string">Zero_Banner</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
